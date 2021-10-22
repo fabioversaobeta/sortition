@@ -1,4 +1,4 @@
-# sorteia-alguem
+# sorteia-alguem - sortition
 
 ## Project setup
 ```
