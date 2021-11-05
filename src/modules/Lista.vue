@@ -1,17 +1,18 @@
 <template>
     <div>
         <div>Lista</div>
-        <Button :title="Add" :icon="'add'" />
+        <Input :label="'Nome'" :typeInput="'required'" :changeValue="changeValue"/>
+        <Button :title="'Add'" :icon="'add'" />
         <ul v-for="item in items" :key="item.id">
             <li>
-                {{ item.name }} - <Button :title="Remove" :icon="'delete'" /> <Button :title="Edit" :icon="'edit'" />
+                {{ item.name }} - <Button :title="'Remove'" :icon="'delete'" /> <Button :title="'Edit'" :icon="'edit'" />
             </li>
         </ul>
-        <Button :title="Clear" :icon="'clear'" />
+        <Button :title="'Clear'" :icon="'clear'" />
 
         <hr />
 
-        <Button :title="Draw" :icon="'draw'" />
+        <Button :title="'Draw'" :icon="'draw'" />
 
         [ SHOW DRAWED]
 
@@ -20,14 +21,17 @@
 
 <script>
 import Button from '@/components/Button.vue'
+import Input from '@/components/Input.vue'
 
 export default {
     name: 'Lista',
     components: {
         Button,
+        Input,
     },
     data() {
         return {
+            inputValue: '',
             items: [
                 {
                     id: 1,
@@ -47,6 +51,11 @@ export default {
                 },
             ],
         }
+    },
+    methods: {
+        changeValue: function (value) {
+            this.inputValue = value
+        },
     },
 }
 </script>

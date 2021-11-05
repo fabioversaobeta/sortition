@@ -20,6 +20,7 @@ export default {
     props: {
         label: String,
         typeInput: String,
+        changeValue: Function,
     },
     data() {
         return {
@@ -29,6 +30,11 @@ export default {
             ],
             valueField: '',
         }
+    },
+    watch: {
+      valueField: function (newVal) {
+        this.changeValue(newVal)
+      },
     },
 }
 </script>
